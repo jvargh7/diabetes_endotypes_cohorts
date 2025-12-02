@@ -1,0 +1,18 @@
+source("cohort/deccoh01_retrieving vitals data.R")
+source("cohort/deccoh02_retrieving lab data.R")
+source("cohort/deccoh04_retrieving diagnosis data.R")
+source("cohort/deccoh03_retrieving medication data.R")
+source("cohort/deccoh05_retrieving insurance status.R")
+source("cohort/deccoh06_retrieving sources data.R")
+source("cohort/deccoh07_retrieving procedures data.R")
+source("cohort/deccoh08_retrieving encounters data.R")
+
+
+source("cohort/deccoh11_retrieving vitals data for decdat05.R")
+source("cohort/deccoh12_retrieving lab data for decdat05.R")
+source("cohort/deccoh14_retrieving diagnosis data for decdat05.R")
+source("cohort/deccoh13_retrieving medication data for decdat05.R")
+source("cohort/deccoh15_retrieving insurance status for decdat05.R")
+source("cohort/deccoh16_retrieving sources data for decdat05.R")
+source("cohort/deccoh17_retrieving procedures data for decdat05.R")
+source("cohort/deccoh18_retrieving encounters data for decdat05.R")

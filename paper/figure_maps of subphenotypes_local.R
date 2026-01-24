@@ -2,17 +2,22 @@ rm(list=ls());gc();source(".Rprofile")
 
 
 state_proportion = read_csv(paste0(path_endotypes_folder,"/working/cosmos/paper/table_state subphenotype distribution_TRANSFER.csv")) %>% 
-  mutate(state_code = sprintf("%02d",state_code))
+  mutate(state_code = sprintf("%02d",state_code))%>%
+  mutate(
+    sidd_prop_category = gsub(">=", "≥", sidd_prop_category),
+    mod_prop_category  = gsub(">=", "≥", mod_prop_category),
+    mard_prop_category = gsub(">=", "≥", mard_prop_category)
+  )
 state_counts = read_csv(paste0(path_endotypes_folder,"/working/cosmos/paper/table_state counts of newly diagnosed T2DM.csv"))
 
 
-sidd_pct_categories <- c("<15%","15-19.9%","20-24.9%",">=25%")
-mod_pct_categories <- c("<20%","20-24.9%","25-29.9%",">=30%")
-mard_pct_categories <- c("<35%","35-39.9%","40-44.9%",">=45%")
+sidd_pct_categories <- c("<15%","15-19.9%","20-24.9%","≥25%")
+mod_pct_categories <- c("<20%","20-24.9%","25-29.9%","≥30%")
+mard_pct_categories <- c("<35%","35-39.9%","40-44.9%","≥45%")
 
-colors_sidd_pct_categories <- c("<15%" = "#C1DDF3","15-19.9%" = "#AAD8EB","20-24.9%" = "#A3BDED",">=25%" = "#8792AE")
-colors_mod_pct_categories <- c("<20%" = "#FDE3CF","20-24.9%" = "#FBD8C1","25-29.9%" = "#E6A890",">=30%" = "#D0937C")
-colors_mard_pct_categories <- c("<35%" = "#F2D0E9","35-39.9%" = "#E1BED9","40-44.9%" = "#BF92B3",">=45%" = "#AE7E9D")
+colors_sidd_pct_categories <- c("<15%" = "#C1DDF3","15-19.9%" = "#AAD8EB","20-24.9%" = "#A3BDED","≥25%" = "#8792AE")
+colors_mod_pct_categories <- c("<20%" = "#FDE3CF","20-24.9%" = "#FBD8C1","25-29.9%" = "#E6A890","≥30%" = "#D0937C")
+colors_mard_pct_categories <- c("<35%" = "#F2D0E9","35-39.9%" = "#E1BED9","40-44.9%" = "#BF92B3","≥45%" = "#AE7E9D")
 
 state_boundaries <- tigris::states(class = "sf", cb = TRUE) %>% 
   tigris::shift_geometry() %>% 
